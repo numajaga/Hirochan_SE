@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f9fc">
+    <meta name="description" content="Nikaido_SE の音声を選んで再生するサウンドボード">
+    <title>Nikaido_SE</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">SOUND BOARD <span>18 SOUNDS</span></p>
+          <h1>Nikaido<em>_SE</em></h1>
+          <p class="subtitle">聴きたい音声を選んで再生</p>
+        </div>
+        <div class="header-actions">
+          <button class="quiet-button" id="edit-toggle" type="button" aria-pressed="false">ボタン名を編集</button>
+          <button class="stop-button" id="stop-button" type="button" disabled>停止する</button>
+        </div>
+      </header>
+
+      <section class="player" aria-label="再生状況">
+        <span class="player-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <div class="player-copy">
+          <span class="player-label">再生状況</span>
+          <p id="status" role="status" aria-live="polite">音声を選択してください</p>
+        </div>
+        <span class="player-count" id="player-count">00 / 18</span>
+      </section>
+
+      <section class="availability" aria-label="音声の読み込み状況">
+        <div class="availability-heading">
+          <p id="load-status" role="status" aria-live="polite">音声を先読みしています…</p>
+          <span id="load-count">0 / 18</span>
+        </div>
+        <progress id="load-progress" max="18" value="0" aria-label="音声の先読み進捗"></progress>
+        <p class="load-detail" id="load-detail">ページを開くと18件すべてを先読みし、準備できた音声から再生します。</p>
+      </section>
+
+      <section class="board" aria-labelledby="board-title">
+        <div class="board-heading">
+          <h2 id="board-title">音声一覧 <span>18</span></h2>
+        </div>
+        <div class="grid" id="sound-grid"></div>
+      </section>
+    </main>
+    <audio id="fallback-audio" preload="none" hidden></audio>
+  </body>
+</html>
+
