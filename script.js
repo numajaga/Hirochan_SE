@@ -39,7 +39,27 @@ try {
   if (AudioContextClass) audioContext = new AudioContextClass();
 } catch { audioContext = null; }
 
-function labelFor(id) { return names[id] || id; }
+const defaultNames = {
+  Ainiiku: "会いに行く",
+  AKUHASHINE: "ジャスティス先制アタック",
+  bakainu: "バカ犬",
+  ema_can: "(鳴き声)",
+  ema: "エマ💢💢",
+  Fan: "処刑",
+  huh: "は？",
+  ImNikaido: "二階堂ヒロだ",
+  Jikosyoukai: "自己紹介",
+  korosanaide: "殺さないで",
+  Kyoumiaru: "興味あるね",
+  KyoumiShinshin: "興味深々か？",
+  naniwo: "何を言っている？",
+  sassato_hayaku: "早く終わらせてくれ",
+  sassato: "さっさと済ませてほしい",
+  Sukuitai: "救いたい",
+  TADASHIKUNAI: "正しくない💢💢",
+  Yoroshiku: "よろしく",
+};
+function labelFor(id) { return names[id] || defaultNames[id] || id; }
 function setStatus(message) { status.textContent = message; }
 
 function cardState(id) {
